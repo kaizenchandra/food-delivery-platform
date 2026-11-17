@@ -1,0 +1,6 @@
+# Optional local test override. Never use this bootstrap operator in production.
+services:
+  keycloak:
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: local-operator
+      KC_BOOTSTRAP_ADMIN_PASSWORD: ${LOCAL_IAM_ADMIN_PASSWORD:?Set LOCAL_IAM_ADMIN_PASSWORD for provider-side tests}

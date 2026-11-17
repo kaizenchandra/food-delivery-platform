@@ -1,0 +1,11 @@
+CREATE EXTENSION IF NOT EXISTS postgis;
+CREATE TABLE restaurants(id bigserial PRIMARY KEY, name text NOT NULL, cuisine text NOT NULL, owner_name text NOT NULL, location geography(Point,4326) NOT NULL, online boolean NOT NULL DEFAULT true);
+CREATE INDEX restaurants_geo ON restaurants USING gist(location);
+CREATE TABLE menu(id bigserial PRIMARY KEY, restaurant_id bigint REFERENCES restaurants, name text NOT NULL, price bigint NOT NULL CHECK(price>0), veg boolean NOT NULL, available boolean NOT NULL DEFAULT true);
+CREATE TABLE orders(id uuid PRIMARY KEY, customer_name text NOT NULL, restaurant_id bigint REFERENCES restaurants, item_id bigint REFERENCES menu, quantity int CHECK(quantity BETWEEN 1 AND 20), total bigint NOT NULL, state text NOT NULL, payment text NOT NULL, driver_name text, otp text NOT NULL, idem text NOT NULL, fingerprint text NOT NULL, version bigint NOT NULL DEFAULT 0, created_at timestamptz NOT NULL DEFAULT now(), UNIQUE(customer_name,idem));
+CREATE UNIQUE INDEX driver_one_active ON orders(driver_name) WHERE driver_name IS NOT NULL AND state IN ('ASSIGNED','PICKED_UP');
+CREATE TABLE ledger(id bigserial PRIMARY KEY, order_id uuid REFERENCES orders, kind text NOT NULL, amount bigint NOT NULL, UNIQUE(order_id,kind));
+CREATE TABLE outbox(id uuid PRIMARY KEY, aggregate_id uuid NOT NULL, event_type text NOT NULL, payload text NOT NULL, created_at timestamptz DEFAULT now(), published_at timestamptz);
+CREATE TABLE audit(id bigserial PRIMARY KEY, actor text NOT NULL, action text NOT NULL, resource text NOT NULL, created_at timestamptz DEFAULT now());
+INSERT INTO restaurants(name,cuisine,owner_name,location) VALUES ('The Saffron Kitchen','North Indian','restaurant',ST_SetSRID(ST_Point(77.5946,12.9716),4326)),('Green Bowl Studio','Healthy','restaurant',ST_SetSRID(ST_Point(77.6046,12.9816),4326)),('Napoli After Hours','Italian','restaurant',ST_SetSRID(ST_Point(77.5846,12.9616),4326));
+INSERT INTO menu(restaurant_id,name,price,veg) VALUES (1,'Paneer tikka bowl',28900,true),(1,'Butter chicken',34900,false),(2,'Avocado harvest bowl',32900,true),(3,'Margherita sourdough',39900,true);

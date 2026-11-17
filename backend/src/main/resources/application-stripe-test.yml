@@ -1,0 +1,4 @@
+payments:
+  mode: stripe-test
+  secret-key: ${STRIPE_SECRET_KEY}
+  webhook-secrets: ${STRIPE_WEBHOOK_SECRET}

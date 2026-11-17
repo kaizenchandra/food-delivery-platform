@@ -1,0 +1,3 @@
+ Container saffron-notification-simulator-1 Restarting 
+ Container saffron-notification-simulator-1 Started 
+PASS notification simulator durability and acceptance aging

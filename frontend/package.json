@@ -1,0 +1,30 @@
+{
+  "name": "saffron-platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3008",
+    "build": "next build --webpack",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "node ../tests/oidc-workflows.cjs",
+    "test:revocation-routing": "node ../tests/revocation-routing.cjs",
+    "test:cart-address-checkout": "node ../tests/cart-address-checkout.cjs",
+    "test:payments": "node ../tests/payments-sandbox.cjs",
+    "test:aftercare": "node ../tests/aftercare.cjs",
+    "test:escalation-notifications": "node ../tests/escalation-notifications-edits.cjs",
+    "test:notification-channels": "node ../tests/notification-channels.cjs"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.21",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "playwright": "^1.65.1",
+    "typescript": "^5"
+  }
+}

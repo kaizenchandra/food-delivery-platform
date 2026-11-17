@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "orderId": "4435d3f2-c1a5-49d6-8270-ab55261d6a3a",
+  "channels": [
+    "EMAIL",
+    "SMS",
+    "PUSH"
+  ],
+  "emailDelivery": "3c8abc1a-ed92-4cf7-95c9-a72f75f017ee",
+  "smsDelivery": "4f22d00b-5f0b-4159-98a3-52464ae11f7c",
+  "pushDelivery": "5afc456d-f7cf-4219-a654-681fce1fc838",
+  "nativeNotificationDisplayed": true,
+  "realProvidersVerified": false,
+  "checks": [
+    "explicit opt-in and persisted preferences",
+    "email and SMS simulated recipient receipt/UI",
+    "push service worker native notification and display acknowledgment",
+    "provider outage retry",
+    "committed SMS response loss without duplicate provider message",
+    "permanent rejection",
+    "accepted email remains pending until receipt",
+    "expired push disables subscription",
+    "opt-out cancels unsent work and suppresses future sends",
+    "Chrome permission denial gives local in-app fallback",
+    "ownership/CSRF/version isolation"
+  ]
+}

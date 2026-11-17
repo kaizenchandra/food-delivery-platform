@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "orderId": "34122a8a-e5fa-4229-8465-81862269b51c",
+  "ticketId": "08eb5d59-1a93-4246-8e04-a7ec5dc82db0",
+  "reviewId": "03869676-6fca-4367-b377-9f7f75a55afd",
+  "refundConfirmed": 5000,
+  "reviewRevisions": 6,
+  "concurrentReviewEdits": 16,
+  "concurrentEscalations": 16,
+  "concurrentReadReceipts": 16,
+  "checks": [
+    "customer escalation and operator acknowledgment UI",
+    "automatic persisted deadline escalation",
+    "escalated refund and completion",
+    "private durable notifications and deep links",
+    "cursor pagination and persistent read receipts",
+    "no notification on rolled-back financial decision",
+    "duplicate payment callback does not duplicate notification",
+    "review edit UI and published rating update",
+    "hidden review edits remain hidden",
+    "moderation/edit stale-version races",
+    "immutable review history and ownership",
+    "mobile notification inbox"
+  ]
+}

@@ -1,0 +1,78 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5544/saffron}
+    username: saffron
+    password: ${DB_PASSWORD:local-only}
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9094}
+  threads.virtual.enabled: true
+server.port: 8088
+management.endpoints.web.exposure.include: health,info
+logging.structured.format.console: logstash
+---
+spring:
+  kafka:
+    producer:
+      acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        enable.idempotence: true
+        delivery.timeout.ms: 10000
+        request.timeout.ms: 5000
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+---
+app.origin: ${APP_ORIGIN}
+spring:
+  security.oauth2.client:
+    registration.keycloak:
+      client-id: saffron-web
+      client-secret: ${OIDC_CLIENT_SECRET}
+      authorization-grant-type: authorization_code
+      scope: openid,profile
+      redirect-uri: ${OIDC_CALLBACK}
+    provider.keycloak:
+      issuer-uri: ${OIDC_ISSUER}
+  session:
+    timeout: 30m
+    jdbc.initialize-schema: never
+server:
+  servlet.session.cookie:
+    name: SESSION
+    http-only: true
+    secure: true
+    same-site: lax
+  forward-headers-strategy: none
+
+---
+routing.base-url: ${ROUTING_URL:}
+
+---
+payments:
+  mode: ${PAYMENT_MODE:disabled}
+  secret-key: ${STRIPE_SECRET_KEY:}
+  webhook-secrets: ${STRIPE_WEBHOOK_SECRET:}
+  worker-enabled: ${PAYMENT_WORKER_ENABLED:true}
+
+---
+channels:
+  email-mode: ${EMAIL_MODE:disabled}
+  sms-mode: ${SMS_MODE:disabled}
+  push-mode: ${PUSH_MODE:disabled}
+  local-base: ${LOCAL_CHANNEL_BASE:http://localhost:8608}
+  local-key: ${LOCAL_CHANNEL_API_KEY:}
+  smtp-host: ${MAIL_HOST:}
+  smtp-port: ${MAIL_PORT:587}
+  smtp-user: ${MAIL_USERNAME:}
+  smtp-password: ${MAIL_PASSWORD:}
+  smtp-from: ${MAIL_FROM:}
+  twilio-sid: ${TWILIO_ACCOUNT_SID:}
+  twilio-token: ${TWILIO_AUTH_TOKEN:}
+  twilio-from: ${TWILIO_FROM:}
+  vapid-public: ${VAPID_PUBLIC_KEY:}
+  vapid-private: ${VAPID_PRIVATE_KEY:}
+  vapid-subject: ${VAPID_SUBJECT:}

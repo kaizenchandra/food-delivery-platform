@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "orderId": "10084119-d035-4122-9487-c489a0ae87eb",
+  "realProvider": "OSRM live via loopback fault gate",
+  "distanceMeters": 2222.6,
+  "roadGeometryPoints": 11,
+  "providerLogoutUiDelayMs": 845,
+  "checks": [
+    "road route and optional street tiles",
+    "explicit simulator",
+    "provider outage fallback and recovery",
+    "route ownership denial",
+    "provider sid revocation and SSE closure",
+    "other sid unaffected",
+    "cookie replay denied",
+    "logout-token replay idempotent",
+    "tampered signature denied",
+    "provider user-wide logout"
+  ]
+}

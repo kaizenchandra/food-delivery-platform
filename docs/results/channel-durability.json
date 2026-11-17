@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "checks": [
+    "Simulator preserves the captured receipt after restart",
+    "Known SMTP acceptance is not aged into unknown polling status; isolated fixture removed"
+  ]
+}

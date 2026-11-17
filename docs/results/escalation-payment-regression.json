@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "provider": "independent local Stripe-shaped sandbox",
+  "stripeHostedVerified": false,
+  "orderId": "50361e9b-a876-4495-91c5-423cb21d9177",
+  "partialRefund": 10000,
+  "totalRefund": 34245,
+  "duplicateWebhooks": 16,
+  "duplicateRefundRequests": 16,
+  "providerStats": {
+    "sessions": 57,
+    "captures": 42,
+    "refunds": 50,
+    "refunded_amount": 1145085,
+    "events": 118
+  },
+  "checks": [
+    "hosted sandbox payment",
+    "unpaid fulfillment blocked",
+    "signed duplicate/stale/tampered events",
+    "partial/full refund UI and allocation",
+    "refund commit response loss",
+    "missing webhook reconciliation",
+    "decline and safe retry",
+    "ambiguous create recovery",
+    "cancel/late capture compensation",
+    "pending/failed refund reservation and recovery",
+    "asynchronous payment remains unpaid until confirmation",
+    "quarantined mismatch review",
+    "distinct repeated expiry events do not repeat transitions"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "smtp": {
+    "tls": "TLSv1.3",
+    "authenticated": true,
+    "state": "ACCEPTED",
+    "deliveryId": "b43c9286-90bc-407f-982d-4b9f8dfdd356",
+    "recipient": "verified OIDC fixture address",
+    "loopbackOnly": true
+  },
+  "nativePush": {
+    "registration": "UNAVAILABLE",
+    "reason": "Error",
+    "message": "NativePushRegistrationTimeout",
+    "serviceAccepted": false,
+    "presented": false
+  }
+}

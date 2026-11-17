@@ -1,0 +1,14 @@
+Java 21 / Maven verify — 2026-11-17
+{'tests': 54, 'failures': 0, 'errors': 0, 'skipped': 0}
+dev.saffron.AddressPricingTest: 6 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.AftercareTest: 4 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.MealsTest: 5 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.PaymentSecurityTest: 6 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.PaymentWorkerTest: 2 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.ProviderSessionsTest: 4 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.RefundAllocationTest: 4 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.RoadRouterTest: 6 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.SessionLifetimeTest: 2 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.SupportExtensionsTest: 5 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.TransportPolicyTest: 5 tests, 0 failures, 0 errors, 0 skipped
+dev.saffron.WorkflowTest: 5 tests, 0 failures, 0 errors, 0 skipped

@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "orderId": "ada8a800-dfaa-4e5d-8a36-4ed3fadf5987",
+  "ticketId": "685423c0-441f-44eb-8cc5-13050ca81680",
+  "reviewId": "4fb9f685-83dc-4f7e-b944-28b5e10612cf",
+  "refundConfirmed": 5000,
+  "duplicateReviews": 16,
+  "duplicateTicketRequests": 16,
+  "concurrentResolutions": 16,
+  "checks": [
+    "hosted payment and verified delivery",
+    "customer review and restaurant display",
+    "literal untrusted content renders without execution",
+    "moderation and rating visibility",
+    "owned support threads and replies",
+    "stale decisions do not create refunds",
+    "approved refund through durable payment worker",
+    "refund status visible to customer",
+    "concurrent resolution one audit action",
+    "failed approval rolls back thread and messages",
+    "customer/restaurant/driver authorization",
+    "mobile layout"
+  ]
+}

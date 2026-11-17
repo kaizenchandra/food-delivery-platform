@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "orderId": "45bd270e-3a58-495f-b4fd-257e45e34ba6",
+  "lines": 2,
+  "subtotal": 116700,
+  "discount": 10000,
+  "tax": 5335,
+  "delivery": 3900,
+  "total": 115935,
+  "duplicateRequests": 16,
+  "allocated": 115935,
+  "checks": [
+    "address CRUD and isolation",
+    "persisted multi-line cart",
+    "single restaurant and optimistic version",
+    "coupon quota and concurrent one-redemption race",
+    "authoritative pricing",
+    "snapshot privacy",
+    "saved-destination routing",
+    "expiry/availability/price changes",
+    "idempotency and refund",
+    "fulfillment and financial allocation"
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "realm": "saffron",
+  "enabled": true,
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "bruteForceProtected": true,
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 1800,
+  "roles": {
+    "realm": [
+      {
+        "name": "CUSTOMER"
+      },
+      {
+        "name": "RESTAURANT"
+      },
+      {
+        "name": "DRIVER"
+      },
+      {
+        "name": "ADMIN"
+      },
+      {
+        "name": "LOGS"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "saffron-web",
+      "secret": "local-only-client-secret",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [
+        "http://localhost:8088/login/oauth2/code/keycloak"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:3008",
+        "backchannel.logout.url": "http://host.docker.internal:8088/logout/connect/back-channel/keycloak",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "protocolMappers": [
+        {
+          "name": "application-roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "config": {
+            "claim.name": "roles",
+            "jsonType.label": "String",
+            "multivalued": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "false",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "00000000-0000-0000-0000-000000000001",
+      "username": "customer",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "customer",
+      "lastName": "Local",
+      "email": "customer@local.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "local-demo",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "CUSTOMER"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000002",
+      "username": "restaurant",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "restaurant",
+      "lastName": "Local",
+      "email": "restaurant@local.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "local-demo",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "RESTAURANT"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000003",
+      "username": "driver",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "driver",
+      "lastName": "Local",
+      "email": "driver@local.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "local-demo",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "DRIVER"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000004",
+      "username": "admin",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "admin",
+      "lastName": "Local",
+      "email": "admin@local.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "local-demo",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "ADMIN",
+        "LOGS"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000005",
+      "username": "other-customer",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "other-customer",
+      "lastName": "Local",
+      "email": "other-customer@local.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "local-demo",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "CUSTOMER"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000006",
+      "username": "other-restaurant",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "other-restaurant",
+      "lastName": "Local",
+      "email": "other-restaurant@local.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "local-demo",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "RESTAURANT"
+      ]
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000007",
+      "username": "other-driver",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "other-driver",
+      "lastName": "Local",
+      "email": "other-driver@local.invalid",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "local-demo",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "DRIVER"
+      ]
+    }
+  ]
+}
